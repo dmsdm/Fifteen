@@ -5,6 +5,9 @@ import android.support.annotation.VisibleForTesting
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import android.view.Menu
+import android.view.MenuItem
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +24,22 @@ class MainActivity : AppCompatActivity() {
         val itemTouchHelper = ItemTouchHelper(FifteenItemTouchCallback(recyclerView.adapter as FifteenSwipeAdapter))
         itemTouchHelper.attachToRecyclerView(recyclerView)
         (recyclerView.adapter as FifteenAdapter).itemTouchHelper = itemTouchHelper
+        (recyclerView.adapter as FifteenAdapter).submitList(FifteenStateHolder.items)
         recyclerView.setHasFixedSize(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.reset -> {
+                FifteenStateHolder.reset()
+                (recyclerView.adapter as FifteenAdapter).submitList(FifteenStateHolder.items)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

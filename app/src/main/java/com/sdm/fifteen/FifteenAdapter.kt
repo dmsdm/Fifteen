@@ -1,6 +1,8 @@
 package com.sdm.fifteen
 
 import android.graphics.Color
+import android.support.v7.recyclerview.extensions.ListAdapter
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
@@ -8,10 +10,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class FifteenAdapter : RecyclerView.Adapter<FifteenAdapter.ViewHolder>(), FifteenSwipeAdapter {
+class FifteenAdapter : ListAdapter<Int, FifteenAdapter.ViewHolder>(DIFF_CALLBACK), FifteenSwipeAdapter {
 
-    val items = Array(16) { i -> if (i < 15) (i + 1) else 0 }
+    object DIFF_CALLBACK : DiffUtil.ItemCallback<Int>() {
+        override fun areItemsTheSame(oldItem: Int?, newItem: Int?): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Int?, newItem: Int?): Boolean {
+            return true
+        }
+    }
+
+    var items: MutableList<Int> = FifteenStateHolder.items
     lateinit var itemTouchHelper: ItemTouchHelper
+
+    override fun submitList(list: MutableList<Int>) {
+        items = list
+        super.submitList(list)
+    }
 
     override fun swap(source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder) {
         val startPosition = source.adapterPosition
@@ -33,8 +50,6 @@ class FifteenAdapter : RecyclerView.Adapter<FifteenAdapter.ViewHolder>(), Fiftee
                 .inflate(R.layout.item, parent, false)
         return ViewHolder(view)
     }
-
-    override fun getItemCount(): Int = 16
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val text: TextView = view.findViewById(R.id.text)

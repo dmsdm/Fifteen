@@ -5,7 +5,7 @@ import android.support.v7.widget.helper.ItemTouchHelper
 class MovementFlagsHelper {
 
     companion object {
-        fun getMovementFlags(items: Array<Int>, adapterPosition: Int) : Int {
+        fun getMovementFlags(items: List<Int>, adapterPosition: Int) : Int {
             val zeroPos = items.indexOf(0)
             when (zeroPos) {
                 0 -> when (adapterPosition) {

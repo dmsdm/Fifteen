@@ -6,7 +6,7 @@ import android.support.v7.widget.helper.ItemTouchHelper
 class FifteenItemTouchCallback(private val adapter: FifteenSwipeAdapter) : ItemTouchHelper.Callback() {
 
     override fun getMovementFlags(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?): Int {
-        val dragFlags = MovementFlagsHelper.getMovementFlags((recyclerView?.adapter as FifteenAdapter).items, viewHolder?.adapterPosition!!)
+        val dragFlags = MovementFlagsHelper.getMovementFlags(FifteenStateHolder.items, viewHolder?.adapterPosition!!)
         val swipeFlags = 0
         return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
     }
