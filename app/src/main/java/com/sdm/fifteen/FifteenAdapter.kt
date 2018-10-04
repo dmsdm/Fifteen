@@ -22,11 +22,11 @@ class FifteenAdapter : ListAdapter<Int, FifteenAdapter.ViewHolder>(DIFF_CALLBACK
         }
     }
 
-    var items: MutableList<Int> = FifteenStateHolder.items
+    var items: MutableList<Int> = FifteenStateHolder.items as MutableList<Int>
     lateinit var itemTouchHelper: ItemTouchHelper
 
-    override fun submitList(list: MutableList<Int>) {
-        items = list
+    override fun submitList(list: List<Int>) {
+        items = list as MutableList<Int>
         super.submitList(list)
     }
 
