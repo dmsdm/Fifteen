@@ -3,9 +3,19 @@ package com.sdm.fifteen
 import java.util.*
 
 object FifteenStateHolder {
-    var items = MutableList(16) { i -> if (i < 15) (i + 1) else 0 }.shuffled()
+
+    var items = getSolvableList(MutableList(16) { i -> if (i < 15) (i + 1) else 0 }.shuffled())
+
+    private fun getSolvableList(items: List<Int>): List<Int> {
+        var newItems = items.shuffled()
+        while (!SolveChecker.isSolvable(newItems)) {
+            newItems = newItems.shuffled()
+        }
+        return newItems
+    }
 
     fun reset() {
-        items = items.shuffled().toMutableList()
+        items = getSolvableList(items)
     }
+
 }

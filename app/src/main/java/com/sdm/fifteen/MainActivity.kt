@@ -9,17 +9,25 @@ import android.view.Menu
 import android.view.MenuItem
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FifteenSwapListener {
 
     @VisibleForTesting
     internal lateinit var recyclerView: RecyclerView
+
+    override fun onSwap() {
+        if (SolveChecker.check(FifteenStateHolder.items)) {
+            title = "solved"
+        } else {
+            title = "unsolved"
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recycler_view)
-        recyclerView.adapter = FifteenAdapter()
+        recyclerView.adapter = FifteenAdapter(this)
         recyclerView.layoutManager = FifteenLayoutManager(this)
         val itemTouchHelper = ItemTouchHelper(FifteenItemTouchCallback(recyclerView.adapter as FifteenSwipeAdapter))
         itemTouchHelper.attachToRecyclerView(recyclerView)
