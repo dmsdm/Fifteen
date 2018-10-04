@@ -53,6 +53,9 @@ class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, F
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        init {
+            view.isHapticFeedbackEnabled = false
+        }
         private val text: TextView = view.findViewById(R.id.text)
         fun bind(position: Int) {
             if (items[position] == 0) {
