@@ -3,7 +3,7 @@ package com.sdm.fifteen
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 
-class FifteenItemTouchCallback(private val adapter: FifteenSwipeAdapter) : ItemTouchHelper.Callback() {
+class FifteenItemTouchCallback(private val swapper: FifteenSwapHandler) : ItemTouchHelper.Callback() {
 
     override fun getMovementFlags(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?): Int {
         val dragFlags = MovementFlagsHelper.getMovementFlags(FifteenStateHolder.items, viewHolder?.adapterPosition!!)
@@ -16,7 +16,7 @@ class FifteenItemTouchCallback(private val adapter: FifteenSwipeAdapter) : ItemT
     }
 
     override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
-        adapter.swap(viewHolder!!, target!!)
+        swapper.swap(viewHolder!!, target!!)
         return true
     }
 

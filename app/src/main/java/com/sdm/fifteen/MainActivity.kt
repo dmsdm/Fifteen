@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), FifteenSwapListener {
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.adapter = FifteenAdapter(this)
         recyclerView.layoutManager = FifteenLayoutManager(this)
-        val itemTouchHelper = ItemTouchHelper(FifteenItemTouchCallback(recyclerView.adapter as FifteenSwipeAdapter))
+        val itemTouchHelper = ItemTouchHelper(FifteenItemTouchCallback(recyclerView.adapter as FifteenSwapHandler))
         itemTouchHelper.attachToRecyclerView(recyclerView)
         (recyclerView.adapter as FifteenAdapter).itemTouchHelper = itemTouchHelper
         (recyclerView.adapter as FifteenAdapter).submitList(FifteenStateHolder.items)

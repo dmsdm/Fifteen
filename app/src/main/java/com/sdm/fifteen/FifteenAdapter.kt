@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, FifteenAdapter.ViewHolder>(DIFF_CALLBACK), FifteenSwipeAdapter {
+class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, FifteenAdapter.ViewHolder>(DIFF_CALLBACK), FifteenSwapHandler {
 
     object DIFF_CALLBACK : DiffUtil.ItemCallback<Int>() {
         override fun areItemsTheSame(oldItem: Int?, newItem: Int?): Boolean {
@@ -47,7 +47,7 @@ class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, F
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =  LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item, parent, false)
         return ViewHolder(view)
     }
