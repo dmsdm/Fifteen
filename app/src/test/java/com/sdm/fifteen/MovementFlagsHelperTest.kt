@@ -1,6 +1,6 @@
 package com.sdm.fifteen
 
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper
 import org.junit.Assert.*
 import org.junit.Test
 

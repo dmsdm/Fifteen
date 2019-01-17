@@ -1,23 +1,23 @@
 package com.sdm.fifteen
 
 import android.graphics.Color
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, FifteenAdapter.ViewHolder>(DIFF_CALLBACK), FifteenSwapHandler {
 
     object DIFF_CALLBACK : DiffUtil.ItemCallback<Int>() {
-        override fun areItemsTheSame(oldItem: Int?, newItem: Int?): Boolean {
+        override fun areItemsTheSame(oldItem: Int, newItem: Int): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Int?, newItem: Int?): Boolean {
+        override fun areContentsTheSame(oldItem: Int, newItem: Int): Boolean {
             return true
         }
     }
@@ -25,7 +25,7 @@ class FifteenAdapter(val swapListener: FifteenSwapListener) : ListAdapter<Int, F
     var items: MutableList<Int> = FifteenStateHolder.items as MutableList<Int>
     lateinit var itemTouchHelper: ItemTouchHelper
 
-    override fun submitList(list: List<Int>) {
+    override fun submitList(list: List<Int>?) {
         items = list as MutableList<Int>
         super.submitList(list)
     }
