@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/fifteen_navigation.xml"
+    app:startDestination="@id/start_dest">
+
+    <fragment
+        android:id="@+id/start_dest"
+        android:name="com.sdm.fifteen.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_start"
+            app:destination="@id/new_game_dest" />
+        <action
+            android:id="@+id/action_continue"
+            app:destination="@+id/continue_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/new_game_dest"
+        android:name="com.sdm.fifteen.FifteenFragment"
+        android:label="FifteenFragment">
+        <argument
+            android:name="newGame"
+            app:argType="boolean"
+            android:defaultValue="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/continue_dest"
+        android:name="com.sdm.fifteen.FifteenFragment"
+        android:label="FifteenFragment">
+        <argument
+            android:name="newGame"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+    </fragment>
+
+</navigation>

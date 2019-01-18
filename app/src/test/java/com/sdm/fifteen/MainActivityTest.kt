@@ -1,14 +1,15 @@
 package com.sdm.fifteen
 
+import androidx.navigation.findNavController
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Before
 
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
-import org.robolectric.RobolectricTestRunner
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
     private var activity: MainActivity? = null
@@ -19,14 +20,10 @@ class MainActivityTest {
         activity = Robolectric.setupActivity(MainActivity::class.java)
     }
 
-    @Test
-    fun recyclerViewWithAdapter() {
-        assertNotNull(activity?.recyclerView?.adapter)
-    }
 
     @Test
-    fun layoutManager() {
-        assertNotNull(activity?.recyclerView?.layoutManager)
+    fun navigationHostFragment() {
+        assertNotNull(activity?.findNavController(R.id.nav_host_fragment))
     }
 
 }

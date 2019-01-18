@@ -33,4 +33,7 @@ ext {
     recyclerVersion = "1.1.0-alpha01"
     navigationVersion = "1.0.0-alpha08"
     constraintLayoutVersion = "2.0.0-alpha2"
+    junitVersion = "4.12"
+    robolectricVersion = "4.0.1"
+    androidTestRunnerVersion = "1.1.1"
 }
