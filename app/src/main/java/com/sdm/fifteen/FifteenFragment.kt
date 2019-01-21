@@ -17,6 +17,14 @@ class FifteenFragment : Fragment(), FifteenSwapListener {
     override fun onSwap() {
         FifteenStateHolder.incrementMoves()
         movesView.text = FifteenStateHolder.moves.toString()
+
+        if (SolveChecker.check(FifteenStateHolder.items)) {
+            showWin()
+        }
+    }
+
+    private fun showWin() {
+        WinDialog().show(fragmentManager!!, "win")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
