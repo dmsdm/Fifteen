@@ -1,7 +1,8 @@
-package com.sdm.fifteen
+package com.sdm.fifteen.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sdm.fifteen.R
 
 
 class MainActivity : AppCompatActivity() {

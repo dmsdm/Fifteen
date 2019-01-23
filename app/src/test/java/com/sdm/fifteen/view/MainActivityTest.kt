@@ -1,7 +1,8 @@
-package com.sdm.fifteen
+package com.sdm.fifteen.view
 
 import androidx.navigation.findNavController
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.sdm.fifteen.R
 import org.junit.Before
 
 import org.junit.Assert.*

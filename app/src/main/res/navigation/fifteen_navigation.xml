@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/start_dest"
-        android:name="com.sdm.fifteen.StartFragment"
+        android:name="com.sdm.fifteen.view.StartFragment"
         android:label="StartFragment" >
         <action
             android:id="@+id/action_start"
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/new_game_dest"
-        android:name="com.sdm.fifteen.FifteenFragment"
+        android:name="com.sdm.fifteen.view.FifteenFragment"
         android:label="FifteenFragment">
         <argument
             android:name="newGame"
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/continue_dest"
-        android:name="com.sdm.fifteen.FifteenFragment"
+        android:name="com.sdm.fifteen.view.FifteenFragment"
         android:label="FifteenFragment">
         <argument
             android:name="newGame"

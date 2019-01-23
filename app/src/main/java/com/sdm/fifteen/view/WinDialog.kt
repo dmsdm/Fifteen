@@ -1,4 +1,4 @@
-package com.sdm.fifteen
+package com.sdm.fifteen.view
 
 import android.app.Dialog
 import android.content.DialogInterface
