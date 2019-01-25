@@ -24,9 +24,20 @@ class SolveCheckerTest {
     }
 
     @Test
+    fun solvable2() {
+        val items = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 12, 13, 15, 14)
+        assertTrue(SolveChecker.isSolvable(items))
+    }
+
+    @Test
     fun unsolvable() {
         val items = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14, 0)
         assertFalse(SolveChecker.isSolvable(items))
     }
 
+    @Test
+    fun unsolvable2() {
+        val items = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0, 12, 13, 14, 15)
+        assertFalse(SolveChecker.isSolvable(items))
+    }
 }

@@ -10,7 +10,7 @@ object SolveChecker {
     fun isSolvable(items: List<Int>): Boolean {
         val itemsWithoutZero = items.minus(0)
         var nextItems = items.minus(0)
-        var sum = 0
+        var sum = items.indexOf(0) / 4 + 1
         itemsWithoutZero.forEach {
             nextItems = nextItems.minus(it)
             nextItems.forEach { it2 ->
