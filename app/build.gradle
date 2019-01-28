@@ -38,6 +38,7 @@ dependencies {
     implementation 'android.arch.navigation:navigation-ui-ktx:' + rootProject.navigationVersion
 
     testImplementation 'junit:junit:' + rootProject.junitVersion
+    testImplementation 'org.mockito:mockito-core:2.23.0'
     testImplementation 'androidx.test:core:1.1.0'
     testImplementation 'androidx.test:runner:1.1.1'
     testImplementation 'androidx.test.ext:junit:1.1.0'

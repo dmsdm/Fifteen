@@ -27,6 +27,10 @@ class FifteenFragment : Fragment(), FifteenSwapListener {
             showWin()
         }
 
+        saveState()
+    }
+
+    private fun saveState() {
         GlobalScope.launch {
             FifteenStateSaver.saveState(context?.getSharedPreferences("state", Context.MODE_PRIVATE)!!)
         }
@@ -41,8 +45,9 @@ class FifteenFragment : Fragment(), FifteenSwapListener {
         val safeArgs = FifteenFragmentArgs.fromBundle(arguments!!)
         if (safeArgs.newGame) {
             FifteenStateHolder.reset()
+            FifteenStateHolder.inProgress = true
+            saveState()
         }
-        FifteenStateHolder.inProgress = true
 
         val view = inflater.inflate(R.layout.fifteen_fragment, container, false)
 
